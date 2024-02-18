@@ -1,0 +1,50 @@
+<?php
+// $Header: $
+// Copyright (c) CODE Consulting and Development, s.r.o., Plzen. All rights reserved.
+
+//#region Example
+// This example shows how to obtain data variables under the "Server" node
+// in the address space.
+//
+// Find all latest examples here : https://opclabs.doc-that.com/files/onlinedocs/OPCLabs-OpcStudio/Latest/examples.html .
+
+$EndpointDescriptor = new COM("OpcLabs.EasyOpc.UA.UAEndpointDescriptor");
+$EndpointDescriptor->UrlString = 
+    //"http://opcua.demo-this.com:51211/UA/SampleServer";
+    //"https://opcua.demo-this.com:51212/UA/SampleServer/";
+    "opc.tcp://opcua.demo-this.com:51210/UA/SampleServer";
+
+// Instantiate the client object
+$Client = new COM("OpcLabs.EasyOpc.UA.EasyUAClient");
+
+// Obtain variables under "Server" node
+$ServerNodeId = new COM("OpcLabs.EasyOpc.UA.AddressSpace.UANodeId");
+$ServerNodeId->StandardName = "Server";
+
+try
+{
+    $NodeElements = $Client->BrowseDataVariables($EndpointDescriptor, $ServerNodeId->ExpandedText);
+}
+catch (com_exception $e)
+{
+    printf("*** Failure: %s\n", $e->getMessage());
+    exit();
+}
+
+// Display results
+foreach ($NodeElements as $NodeElement)
+{
+    printf("\n");
+    printf("nodeElement.NodeId: %s\n", $NodeElement->NodeId);
+    printf("nodeElement.NodeId.ExpandedText: %s\n", $NodeElement->NodeId->ExpandedText);
+    printf("nodeElement.DisplayName: %s\n", $NodeElement->DisplayName);
+}
+
+// Example output:
+//
+//nodeElement.NodeId: Server_ServerStatus
+//nodeElement.NodeId.ExpandedText: nsu=http://opcfoundation.org/UA/ ;i=2256
+//nodeElement.DisplayName: ServerStatus
+
+//#endregion Example
+?>
