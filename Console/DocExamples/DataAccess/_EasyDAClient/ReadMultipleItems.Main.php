@@ -5,7 +5,10 @@
 //#region Example
 // This example shows how to read 4 items at once, and display their values, timestamps and qualities.
 //
-// Find all latest examples here : https://opclabs.doc-that.com/files/onlinedocs/OPCLabs-OpcStudio/Latest/examples.html .
+// Find all latest examples here: https://opclabs.doc-that.com/files/onlinedocs/OPCLabs-OpcStudio/Latest/examples.html .
+// OPC client and subscriber examples in PHP on GitHub: https://github.com/OPCLabs/Examples-QuickOPC-PHP .
+// Missing some example? Ask us for it on our Online Forums, https://www.opclabs.com/forum/index ! You do not have to own
+// a commercial license in order to use Online Forums, and we reply to every post.
 
 $ReadItemArguments1 = new COM("OpcLabs.EasyOpc.DataAccess.OperationModel.DAReadItemArguments");
 $ReadItemArguments1->ServerDescriptor->ServerClass = "OPCLabs.KitServer.2";
