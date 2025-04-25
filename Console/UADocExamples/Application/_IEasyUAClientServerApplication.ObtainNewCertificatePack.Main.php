@@ -3,7 +3,7 @@
 // Copyright (c) CODE Consulting and Development, s.r.o., Plzen. All rights reserved.
 
 //#region Example
-// Shows how to obtain a new application certificate from the certificate manager (GDS),
+// Shows how to obtain a new application certificate pack from the certificate manager (GDS),
 // and store it for subsequent usage.
 //
 // Find all latest examples here: https://opclabs.doc-that.com/files/onlinedocs/OPCLabs-OpcStudio/Latest/examples.html .
@@ -24,13 +24,10 @@ $Application = new COM("OpcLabs.EasyOpc.UA.Application.EasyUAApplication");
 $ApplicationElement = $Application->GetApplicationElement;
 printf("Application URI string: %s\n", $Application->GetApplicationElement->ApplicationUriString);
 
-// Obtain a new application certificate from the certificate manager (GDS), and store it for subsequent usage.
-$Arguments = new COM("OpcLabs.EasyOpc.UA.Application.UAObtainCertificateArguments");
-$Arguments->Parameters->GdsEndpointDescriptor = $GdsEndpointDescriptor;
-
+// Obtain a new application certificate pack from the certificate manager (GDS), and store it for subsequent usage.
 try
 {
-    $Certificate = $Application->ObtainNewCertificate($Arguments);
+    $CertificateDictionary = $Application->ObtainNewCertificatePack($GdsEndpointDescriptor);
 }
 catch (com_exception $e)
 {
@@ -39,7 +36,12 @@ catch (com_exception $e)
 }
 
 // Display results
-printf("Certificate: %s\n", $Certificate);
+foreach ($CertificateDictionary as $Pair)
+{
+    printf("\n");
+    printf("Certificate type Id: %s\n", $Pair->Key);
+    printf("Certificate: %s\n", $Pair->Value);
+}
 
 //#endregion Example
 ?>
