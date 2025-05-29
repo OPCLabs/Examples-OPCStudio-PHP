@@ -7,13 +7,13 @@ The examples can be run
 * standalone (in the console).
 
 The examples work with our sample servers and publishers. Most of them reside on the Web; OPC "Classic" servers for Windows
-are installed using the [OPC Studio Setup program](https://www.opclabs.com/products/quickopc/downloads).
+are installed using the [OPC Studio Setup program](https://www.opclabs.com/download).
 
 Useful links:
 * [OPC client and subscriber examples in the documentation](https://opclabs.doc-that.com/files/onlinedocs/OPCLabs-OpcStudio/Latest/examples.html).
-* [OPC client and subscriber examples in PHP on GitHub](https://github.com/OPCLabs/Examples-QuickOPC-PHP).
-* [OPC Studio Setup program](https://www.opclabs.com/products/quickopc/downloads)
-* [Getting Started under COM](https://opclabs.doc-that.com/files/onlinedocs/OPCLabs-OpcStudio/2024.1/User%27s%20Guide%20and%20Reference-OPC%20Studio/webframe.html#Getting%20Started%20under%20COM.html).
+* [OPC client and subscriber examples in PHP on GitHub](https://github.com/OPCLabs/Examples-OPCStudio-PHP).
+* [OPC Studio Setup program](https://www.opclabs.com/download)
+* [Getting Started with QuickOPC under COM](https://opclabs.doc-that.com/files/onlinedocs/OPCLabs-OpcStudio/Latest/User%27s%20Guide%20and%20Reference-OPC%20Studio/webframe.html#Getting%20Started%20with%20QuickOPC%20under%20COM.html).
 * [OPC Labs Knowledge Base](https://kb.opclabs.com).
 
 Need help, or missing some example? Ask us for it on our [Online Forums](https://www.opclabs.com/forum/index)!
